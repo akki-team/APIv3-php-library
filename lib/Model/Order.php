@@ -65,7 +65,8 @@ class Order implements ModelInterface, ArrayAccess
         'products' => '\SendinBlue\Client\Model\OrderProducts[]',
         'email' => 'string',
         'billing' => '\SendinBlue\Client\Model\OrderBilling',
-        'coupons' => 'string[]'
+        'coupons' => 'string[]',
+        'metaInfo' => 'map[string,string]',
     ];
 
     /**
@@ -82,7 +83,8 @@ class Order implements ModelInterface, ArrayAccess
         'products' => null,
         'email' => null,
         'billing' => null,
-        'coupons' => null
+        'coupons' => null,
+        'metaInfo' => null,
     ];
 
     /**
@@ -120,7 +122,8 @@ class Order implements ModelInterface, ArrayAccess
         'products' => 'products',
         'email' => 'email',
         'billing' => 'billing',
-        'coupons' => 'coupons'
+        'coupons' => 'coupons',
+        'metaInfo' => 'metaInfo',
     ];
 
     /**
@@ -137,7 +140,8 @@ class Order implements ModelInterface, ArrayAccess
         'products' => 'setProducts',
         'email' => 'setEmail',
         'billing' => 'setBilling',
-        'coupons' => 'setCoupons'
+        'coupons' => 'setCoupons',
+        'metaInfo' => 'setMetaInfo',
     ];
 
     /**
@@ -154,7 +158,8 @@ class Order implements ModelInterface, ArrayAccess
         'products' => 'getProducts',
         'email' => 'getEmail',
         'billing' => 'getBilling',
-        'coupons' => 'getCoupons'
+        'coupons' => 'getCoupons',
+        'metaInfo' => 'getMetaInfo',
     ];
 
     /**
@@ -198,9 +203,9 @@ class Order implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
 
-    
+
+
 
     /**
      * Associative array for storing property values
@@ -226,6 +231,7 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['email'] = isset($data['email']) ? $data['email'] : null;
         $this->container['billing'] = isset($data['billing']) ? $data['billing'] : null;
         $this->container['coupons'] = isset($data['coupons']) ? $data['coupons'] : null;
+        $this->container['metaInfo'] = isset($data['metaInfo']) ? $data['metaInfo'] : null;
     }
 
     /**
@@ -485,6 +491,31 @@ class Order implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets metaInfo
+     *
+     * @return map[string,string]
+     */
+    public function getMetaInfo()
+    {
+        return $this->container['metaInfo'];
+    }
+
+    /**
+     * Sets metaInfo
+     *
+     * @param map[string,string] $metaInfo Meta data of order
+     *
+     * @return $this
+     */
+    public function setMetaInfo($metaInfo)
+    {
+        $this->container['metaInfo'] = $metaInfo;
+
+        return $this;
+    }
+
     /**
      * Returns true if offset exists. False otherwise.
      *
